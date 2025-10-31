@@ -2,15 +2,9 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 
 export default function Doctor() {
-  const [stats, setStats] = useState({
-    totalPatients: 0,
-    doctors: 5,
-    todayAppointments: 0,
-    completed: 0,
-  });
-
   const [appointments, setAppointments] = useState([]);
   const [query, setQuery] = useState("");
+
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({
     name: "",

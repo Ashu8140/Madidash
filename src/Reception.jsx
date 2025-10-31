@@ -26,28 +26,10 @@ export default function Receptionist() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newAppointment = { id: Date.now(), ...form };
-
-    const updatedAppointments = [...appointments, newAppointment];
+    const updatedAppointments = [...appointments, { id: Date.now(), ...form }];
     setAppointments(updatedAppointments);
-
     localStorage.setItem("appointments", JSON.stringify(updatedAppointments));
-
     alert(`Appointment booked for ${form.name} with Dr. ${form.doctor}`);
-
-    setForm({
-      name: "",
-      age: "",
-      temp: "",
-      bp: "",
-      weight: "",
-      doctor: "",
-      number: "",
-      date: defaultDate,
-      time: defaultTime,
-    });
   };
 
   useEffect(() => {
